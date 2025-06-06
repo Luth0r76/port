@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruta 10 de Vigilancia</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #e6f7ff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            border-bottom: 3px solid #4a90e2;
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.4);
+            text-align: center;
+            padding: 1.5rem;
+            width: 100%;
+        }
+
+        .container {
+            width: 95%;
+            max-width: 500px;
+            margin: 1rem auto;
+            padding: 1rem;
+            background: rgba(30, 60, 90, 0.8);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(74, 144, 226, 0.2);
+        }
+
+        .location {
+            background: linear-gradient(135deg, rgba(0, 50, 100, 0.9), rgba(0, 80, 140, 0.9));
+            border-left: 5px solid #00bcd4;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 188, 212, 0.3);
+            position: relative;
+            padding: 1rem 1rem 1.5rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(0, 188, 212, 0.3);
+        }
+
+        .location h2 {
+            font-size: 1.2rem;
+            color: #00e5ff;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .location p {
+            font-size: 1rem;
+            color: #b0d4f1;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: linear-gradient(135deg, #4a90e2, #1e3c72);
+            border: 2px solid #4a90e2;
+            color: white;
+            text-decoration: none;
+            padding: 0.8rem;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 0.5rem;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            box-shadow: 0 0 20px rgba(255, 107, 107, 0.5);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>🚔 Zonas Portuarias ⚓</h1>
+        <p>Vigilancia</p>
+    </header>
+
+    <div class="container">
+        <div id="locations-container">
+            
+            <div class="location" data-id="puerto-norte">
+                <h2>⚓ Área Ampliación Norte del Puerto</h2>
+                <p><strong>Zona:</strong> Ampliación Norte - Contenedores</p>
+                <p>🔑 Pendiente asignación</p>
+                <a href="https://www.google.es/maps/dir/?api=1&destination=Puerto+de+Valencia+Ampliacion+Norte"
+                    class="btn" target="_blank">Ir al Destino 🚔</a>
+            </div>
+
+            <div class="location" data-id="dique-este">
+                <h2>⚓ Área Dique del Este y Muelle Norte</h2>
+                <p><strong>Zona:</strong> Dique del Este - Muelle Norte</p>
+                <p>🔑 Pendiente asignación</p>
+                <a href="https://www.google.es/maps/dir/?api=1&destination=Puerto+de+Valencia+Dique+del+Este"
+                    class="btn" target="_blank">Ir al Destino 🚔</a>
+            </div>
+
+            <div class="location" data-id="muelle-levante">
+                <h2>⚓ Área Muelle de Levante</h2>
+                <p><strong>Zona:</strong> Muelle de Levante - Contenedores</p>
+                <p>🔑 Pendiente asignación</p>
+                <a href="https://www.google.es/maps/dir/?api=1&destination=Puerto+de+Valencia+Muelle+de+Levante"
+                    class="btn" target="_blank">Ir al Destino 🚔</a>
+            </div>
+
+            <div class="location" data-id="marina-real">
+                <h2>⚓ Área Marina Real Juan Carlos I</h2>
+                <p><strong>Zona:</strong> Dársena Interior - Marina Real</p>
+                <p>🔑 Pendiente asignación</p>
+                <a href="https://www.google.es/maps/dir/?api=1&destination=Marina+Real+Juan+Carlos+I+Valencia"
+                    class="btn" target="_blank">Ir al Destino 🚔</a>
+            </div>
+
+            <div class="location" data-id="muelles-poniente">
+                <h2>⚓ Área Muelles de Poniente y Transversales</h2>
+                <p><strong>Zona:</strong> Muelles Poniente - Transversales</p>
+                <p>🔑 Pendiente asignación</p>
+                <a href="https://www.google.es/maps/dir/?api=1&destination=Puerto+de+Valencia+Muelles+de+Poniente"
+                    class="btn" target="_blank">Ir al Destino 🚔</a>
+            </div>
+
+            <div class="location" data-id="espijon-turia">
+                <h2>⚓ Área Muelles Espigón Turia y Turia</h2>
+                <p><strong>Zona:</strong> Espigón Turia - Muelle Turia</p>
+                <p>🔑 Pendiente asignación</p>
+                <a href="https://www.google.es/maps/dir/?api=1&destination=Puerto+de+Valencia+Espijon+del+Turia"
+                    class="btn" target="_blank">Ir al Destino 🚔</a>
+            </div>
+
+            <div class="location" data-id="muelle-sur">
+                <h2>⚓ Área Muelle Sur</h2>
+                <p><strong>Zona:</strong> Muelle Sur - Terminal Sur</p>
+                <p>🔑 Pendiente asignación</p>
+                <a href="https://www.google.es/maps/dir/?api=1&destination=Puerto+de+Valencia+Muelle+Sur"
+                    class="btn" target="_blank">Ir al Destino 🚔</a>
+            </div>
+
+            <div class="location" data-id="ampliacion-sur">
+                <h2>⚓ Área Ampliación Sur del Puerto</h2>
+                <p><strong>Zona:</strong> Ampliación Sur - Nuevas Instalaciones</p>
+                <p>🔑 Pendiente asignación</p>
+                <a href="https://www.google.es/maps/dir/?api=1&destination=Puerto+de+Valencia+Ampliacion+Sur"
+                    class="btn" target="_blank">Ir al Destino 🚔</a>
+            </div>
+
+            <div class="location" data-id="club-nautico">
+                <h2>⚓ Área Club Náutico de Valencia</h2>
+                <p><strong>Zona:</strong> Club Náutico - Instalaciones Deportivas</p>
+                <p>🔑 Pendiente asignación</p>
+                <a href="https://www.google.es/maps/dir/?api=1&destination=Real+Club+Náutico+de+Valencia"
+                    class="btn" target="_blank">Ir al Destino 🚔</a>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
