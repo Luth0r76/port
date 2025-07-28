@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piratas de Levante 🏴‍☠️</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Relleno inferior para evitar que el pie de página fijo oculte el contenido */
+            padding-bottom: 5rem; 
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem; /* Relleno ajustado para móviles */
+        }
+        @media (min-width: 640px) {
+            .container {
+                padding: 2rem;
+            }
+        }
+        .table-container {
+            overflow-x: auto;
+            border-radius: 0.75rem;
+        }
+        th {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        /* Fotogramas clave para la animación de salto */
+        @keyframes jump {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(5deg);
+            }
+        }
+        /* Clase para aplicar la animación */
+        .jumping-robot {
+            display: inline-block; /* Necesario para que la transformación funcione */
+            animation: jump 1s infinite ease-in-out;
+        }
+    </style>
+    <script>
+        // Configuración de Tailwind para el modo oscuro
+        tailwind.config = {
+            darkMode: 'class',
+        }
+    </script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
+        <header class="relative text-center mb-8">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800 dark:text-gray-100">Piratas de Levante 🏴‍☠️</h1>
+            <p class="text-lg text-gray-600 dark:text-gray-400 mt-2">Puntos de Interés Ordenados de Norte a Sur</p>
+            <button id="theme-toggle" class="absolute top-0 right-0 p-2 rounded-full text-2xl text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                <span id="theme-toggle-dark-icon" class="hidden">🌙</span>
+                <span id="theme-toggle-light-icon" class="hidden">☀️</span>
+            </button>
+        </header>
+
+        <div class="table-container bg-white dark:bg-gray-800 shadow-md rounded-lg">
+            <table class="w-full text-sm text-left text-gray-700 dark:text-gray-300">
+                <thead class="text-xs text-gray-800 dark:text-gray-300 uppercase bg-gray-50 dark:bg-gray-700">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 font-bold">Punto de Interés</th>
+                        <th scope="col" class="px-6 py-3 font-bold">Ubicación Específica (Muelle/Dársena)</th>
+                        <th scope="col" class="px-6 py-3 font-bold text-center">Ir (Google Maps)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Fila 1 -->
+                    <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">🌊 Dique de la Ampliación Norte</td>
+                        <td class="px-6 py-4">No especificado</td>
+                        <td class="px-6 py-4 text-center">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=39.465,-0.295" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
+                                <span class="mr-2">🚓</span> Ir
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Fila 2 -->
+                    <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">🚪 Puerta de Caballeros</td>
+                        <td class="px-6 py-4">No especificado</td>
+                        <td class="px-6 py-4 text-center">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=39.463,-0.312" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
+                                <span class="mr-2">🚓</span> Ir
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Fila 3 -->
+                    <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">🌊 Contradique Norte</td>
+                        <td class="px-6 py-4">No especificado</td>
+                        <td class="px-6 py-4 text-center">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=39.462,-0.308" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
+                                <span class="mr-2">🚓</span> Ir
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Fila 4 -->
+                    <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">🛥️ Dársena de Servicios Náuticos</td>
+                        <td class="px-6 py-4">No especificado</td>
+                        <td class="px-6 py-4 text-center">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=39.460,-0.318" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
+                                <span class="mr-2">🚓</span> Ir
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Fila 5 -->
+                    <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">⚓ Dársena Interior</td>
+                        <td class="px-6 py-4">No especificado</td>
+                        <td class="px-6 py-4 text-center">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=39.457,-0.328" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
+                                <span class="mr-2">🚓</span> Ir
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Fila 6 -->
+                    <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">🚪 Puerta del Dique del Este</td>
+                        <td class="px-6 py-4">No especificado</td>
+                        <td class="px-6 py-4 text-center">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=39.456,-0.309" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
+                                <span class="mr-2">🚓</span> Ir
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Fila 7 -->
+                    <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">🚪 Puerta de Levante</td>
+                        <td class="px-6 py-4">No especificado</td>
+                        <td class="px-6 py-4 text-center">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=39.456,-0.323" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
+                                <span class="mr-2">🚓</span> Ir
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Fila 8 -->
+                    <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">📦 APM Terminals Valencia</td>
+                        <td class="px-6 py-4">Muelle de Levante / Muelle Llovera</td>
+                        <td class="px-6 py-4 text-center">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=39.453,-0.315" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
+                                <span class="mr-2">🚓</span> Ir
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Fila 9 -->
+                    <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">⛴️ Terminal GNV</td>
+                        <td class="px-6 py-4">Muelle Perfecto Palacio</td>
+                        <td class="px-6 py-4 text-center">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=39.452,-0.327" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
+                                <span class="mr-2">🚓</span> Ir
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Fila 10 -->
+                    <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">⛴️ Terminal Trasmed</td>
+                        <td class="px-6 py-4">Muelle de Poniente</td>
+                        <td class="px-6 py-4 text-center">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=39.449,-0.328" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
+                                <span class="mr-2">🚓</span> Ir
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Fila 11 -->
+                    <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">📦 MSC Terminal Valencia</td>
+                        <td class="px-6 py-4">Muelle Transversal de Costa</td>
+                        <td class="px-6 py-4 text-center">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=39.448,-0.317" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
+                                <span class="mr-2">🚓</span> Ir
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Fila 12 -->
+                    <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">⛴️ Terminal Baleària</td>
+                        <td class="px-6 py-4">Muelle del Turia</td>
+                        <td class="px-6 py-4 text-center">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=39.447,-0.325" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
+                                <span class="mr-2">🚓</span> Ir
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Fila 13 -->
+                    <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">⚓ Dársena del Turia</td>
+                        <td class="px-6 py-4">No especificado</td>
+                        <td class="px-6 py-4 text-center">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=39.443,-0.329" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
+                                <span class="mr-2">🚓</span> Ir
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Fila 14 -->
+                    <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">📦 CSP Iberian Valencia Terminal</td>
+                        <td class="px-6 py-4">Muelle Príncipe Felipe / Muelle de Costa</td>
+                        <td class="px-6 py-4 text-center">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=39.442,-0.315" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
+                                <span class="mr-2">🚓</span> Ir
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Fila 15 -->
+                    <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">🚚 Zona de Actividades Logísticas</td>
+                        <td class="px-6 py-4">Zona Sur</td>
+                        <td class="px-6 py-4 text-center">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=39.438,-0.342" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
+                                <span class="mr-2">🚓</span> Ir
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Fila 16 -->
+                    <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">⚓ Muelle Sur</td>
+                        <td class="px-6 py-4">Dársena del Turia</td>
+                        <td class="px-6 py-4 text-center">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=39.438,-0.326" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
+                                <span class="mr-2">🚓</span> Ir
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Fila 17 -->
+                    <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">🚪 Puerta Sur</td>
+                        <td class="px-6 py-4">No especificado</td>
+                        <td class="px-6 py-4 text-center">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=39.435,-0.338" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
+                                <span class="mr-2">🚓</span> Ir
+                            </a>
+                        </td>
+                    </tr>
+                    <!-- Fila 18 -->
+                    <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="px-6 py-4 font-medium text-gray-900 dark:text-white whitespace-nowrap">⛵ Real Club Náutico de Valencia</td>
+                        <td class="px-6 py-4">Dársena Sur</td>
+                        <td class="px-6 py-4 text-center">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=39.433,-0.332" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
+                                <span class="mr-2">🚓</span> Ir
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Pie de página estático con emoji animado -->
+    <footer class="fixed bottom-0 left-0 w-full bg-white dark:bg-gray-800 p-4 text-center text-gray-800 dark:text-gray-200 font-semibold shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] dark:shadow-[0_-4px_6px_-1px_rgba(255,255,255,0.1)] z-20 transition-colors duration-300">
+        Jose Acedemy <span class="jumping-robot">🤖</span>
+    </footer>
+
+    <script>
+        // Lógica para el interruptor de tema (día/noche)
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+        const themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+        // Cambiar el icono basado en el tema actual
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            themeToggleLightIcon.classList.remove('hidden');
+            document.documentElement.classList.add('dark');
+        } else {
+            themeToggleDarkIcon.classList.remove('hidden');
+            document.documentElement.classList.remove('dark');
+        }
+
+        themeToggleBtn.addEventListener('click', function() {
+            // Alternar iconos dentro del botón
+            themeToggleDarkIcon.classList.toggle('hidden');
+            themeToggleLightIcon.classList.toggle('hidden');
+
+            // Si se estableció previamente a través de localStorage, eliminarlo
+            if (localStorage.getItem('color-theme')) {
+                if (localStorage.getItem('color-theme') === 'light') {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                } else {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                }
+            // Si NO se estableció previamente a través de localStorage
+            } else {
+                if (document.documentElement.classList.contains('dark')) {
+                    document.documentElement.classList.remove('dark');
+                    localStorage.setItem('color-theme', 'light');
+                } else {
+                    document.documentElement.classList.add('dark');
+                    localStorage.setItem('color-theme', 'dark');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
