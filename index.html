@@ -22,56 +22,10 @@
             }
         }
         .table-container {
-            overflow-x: auto;
+            overflow-x: auto; /* Mantenemos el scroll horizontal por si la tabla no cabe */
             border-radius: 0.75rem;
         }
         
-        /* --- ESTILOS PARA RESPONSIVE MÓVIL --- */
-        @media (max-width: 767px) {
-            .responsive-table thead {
-                display: none;
-            }
-            .responsive-table tr {
-                display: block;
-                margin-bottom: 1rem;
-                border-bottom: 2px solid #e5e7eb; /* dark:border-gray-700 */
-                padding-bottom: 1rem;
-            }
-             .dark .responsive-table tr {
-                border-bottom-color: #374151;
-            }
-            .responsive-table tr:last-child {
-                margin-bottom: 0;
-                border-bottom: none;
-                padding-bottom: 0;
-            }
-            .responsive-table td {
-                display: block;
-                text-align: right;
-                padding-left: 50%;
-                position: relative;
-                padding-top: 0.75rem;
-                padding-bottom: 0.75rem;
-            }
-            .responsive-table td::before {
-                content: attr(data-label);
-                position: absolute;
-                left: 0.75rem;
-                width: 45%;
-                padding-right: 0.5rem;
-                white-space: nowrap;
-                text-align: left;
-                font-weight: 600;
-            }
-            .responsive-table td[data-label="Navegar"] {
-                 padding-left: 0.75rem;
-                 text-align: center;
-            }
-            .responsive-table td[data-label="Navegar"]::before {
-                content: none;
-            }
-        }
-
         @keyframes jump {
             0%, 100% {
                 transform: translateY(0) rotate(0deg);
@@ -106,7 +60,7 @@
         <div>
             <h2 class="text-xl font-bold text-gray-700 dark:text-gray-200 mb-4">ZONA NORTE</h2>
             <div class="table-container bg-white dark:bg-gray-800 shadow-md rounded-lg mb-8">
-                <table class="w-full text-sm text-left text-gray-700 dark:text-gray-300 responsive-table">
+                <table class="w-full text-sm text-left text-gray-700 dark:text-gray-300">
                     <thead class="text-xs text-gray-800 dark:text-gray-300 uppercase bg-gray-50 dark:bg-gray-700">
                         <tr>
                             <th scope="col" class="px-4 py-3 sm:px-6 font-bold">Punto de Interés</th>
@@ -116,36 +70,36 @@
                     </thead>
                     <tbody>
                         <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <td data-label="Punto de Interés" class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">🚗 Dique del Este (Grimaldi Lines)</td>
-                            <td data-label="Dirección" class="px-4 py-3 sm:px-6">Bajando el túnel</td>
-                            <td data-label="Navegar" class="px-4 py-3 sm:px-6 text-center">
+                            <td class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">🚗 Dique del Este (Grimaldi Lines)</td>
+                            <td class="px-4 py-3 sm:px-6">Bajando el túnel</td>
+                            <td class="px-4 py-3 sm:px-6 text-center">
                                 <a href="https://www.google.com/maps/dir/?api=1&destination=39.462,-0.3082" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-3 py-2 sm:px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
                                     <span class="mr-2">🚓</span> Ir
                                 </a>
                             </td>
                         </tr>
                         <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <td data-label="Punto de Interés" class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">💧 Muelle Norte (Graneles Líquidos)</td>
-                            <td data-label="Dirección" class="px-4 py-3 sm:px-6">Bajando el túnel</td>
-                            <td data-label="Navegar" class="px-4 py-3 sm:px-6 text-center">
+                            <td class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">💧 Muelle Norte (Graneles Líquidos)</td>
+                            <td class="px-4 py-3 sm:px-6">Bajando el túnel</td>
+                            <td class="px-4 py-3 sm:px-6 text-center">
                                 <a href="https://www.google.com/maps/dir/?api=1&destination=39.462,-0.3083" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-3 py-2 sm:px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
                                     <span class="mr-2">🚓</span> Ir
                                 </a>
                             </td>
                         </tr>
                         <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <td data-label="Punto de Interés" class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">🏗️ Muelle de Levante (Polivalente)</td>
-                            <td data-label="Dirección" class="px-4 py-3 sm:px-6">Bajando el túnel</td>
-                            <td data-label="Navegar" class="px-4 py-3 sm:px-6 text-center">
+                            <td class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">🏗️ Muelle de Levante (Polivalente)</td>
+                            <td class="px-4 py-3 sm:px-6">Bajando el túnel</td>
+                            <td class="px-4 py-3 sm:px-6 text-center">
                                 <a href="https://www.google.com/maps/dir/?api=1&destination=39.462,-0.3084" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-3 py-2 sm:px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
                                     <span class="mr-2">🚓</span> Ir
                                 </a>
                             </td>
                         </tr>
                         <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <td data-label="Punto de Interés" class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">🏢 Oficinas Trasmed</td>
-                            <td data-label="Dirección" class="px-4 py-3 sm:px-6">Paseo de Caro</td>
-                            <td data-label="Navegar" class="px-4 py-3 sm:px-6 text-center">
+                            <td class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">🏢 Oficinas Trasmed</td>
+                            <td class="px-4 py-3 sm:px-6">Paseo de Caro</td>
+                            <td class="px-4 py-3 sm:px-6 text-center">
                                 <a href="https://www.google.com/maps/dir/?api=1&destination=39.462,-0.3085" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-3 py-2 sm:px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
                                     <span class="mr-2">🚓</span> Ir
                                 </a>
@@ -159,7 +113,7 @@
         <div>
             <h2 class="text-xl font-bold text-gray-700 dark:text-gray-200 mb-4">ZONA CENTRAL</h2>
             <div class="table-container bg-white dark:bg-gray-800 shadow-md rounded-lg mb-8">
-                <table class="w-full text-sm text-left text-gray-700 dark:text-gray-300 responsive-table">
+                <table class="w-full text-sm text-left text-gray-700 dark:text-gray-300">
                      <thead class="text-xs text-gray-800 dark:text-gray-300 uppercase bg-gray-50 dark:bg-gray-700">
                         <tr>
                             <th scope="col" class="px-4 py-3 sm:px-6 font-bold">Punto de Interés</th>
@@ -169,63 +123,63 @@
                     </thead>
                     <tbody>
                         <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <td data-label="Punto de Interés" class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">⛴️ Muelle Perfecto Palacio (GNV)</td>
-                            <td data-label="Dirección" class="px-4 py-3 sm:px-6">Rotonda elevada</td>
-                            <td data-label="Navegar" class="px-4 py-3 sm:px-6 text-center">
+                            <td class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">⛴️ Muelle Perfecto Palacio (GNV)</td>
+                            <td class="px-4 py-3 sm:px-6">Rotonda elevada</td>
+                            <td class="px-4 py-3 sm:px-6 text-center">
                                 <a href="https://www.google.com/maps/dir/?api=1&destination=39.462,-0.3086" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-3 py-2 sm:px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
                                     <span class="mr-2">🚓</span> Ir
                                 </a>
                             </td>
                         </tr>
                         <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <td data-label="Punto de Interés" class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">⛴️ Muelle de Poniente (Pasajeros)</td>
-                            <td data-label="Dirección" class="px-4 py-3 sm:px-6">Rotonda elevada</td>
-                            <td data-label="Navegar" class="px-4 py-3 sm:px-6 text-center">
+                            <td class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">⛴️ Muelle de Poniente (Pasajeros)</td>
+                            <td class="px-4 py-3 sm:px-6">Rotonda elevada</td>
+                            <td class="px-4 py-3 sm:px-6 text-center">
                                 <a href="https://www.google.com/maps/dir/?api=1&destination=39.462,-0.3087" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-3 py-2 sm:px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
                                     <span class="mr-2">🚓</span> Ir
                                 </a>
                             </td>
                         </tr>
                         <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <td data-label="Punto de Interés" class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">⛴️ Muelle del Turia (Baleària)</td>
-                            <td data-label="Dirección" class="px-4 py-3 sm:px-6">Rotonda elevada</td>
-                            <td data-label="Navegar" class="px-4 py-3 sm:px-6 text-center">
+                            <td class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">⛴️ Muelle del Turia (Baleària)</td>
+                            <td class="px-4 py-3 sm:px-6">Rotonda elevada</td>
+                            <td class="px-4 py-3 sm:px-6 text-center">
                                 <a href="https://www.google.com/maps/dir/?api=1&destination=39.462,-0.3088" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-3 py-2 sm:px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
                                     <span class="mr-2">🚓</span> Ir
                                 </a>
                             </td>
                         </tr>
                         <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <td data-label="Punto de Interés" class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">⚓ Muelle Espigón Turia Norte</td>
-                            <td data-label="Dirección" class="px-4 py-3 sm:px-6">Rotonda elevada</td>
-                            <td data-label="Navegar" class="px-4 py-3 sm:px-6 text-center">
+                            <td class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">⚓ Muelle Espigón Turia Norte</td>
+                            <td class="px-4 py-3 sm:px-6">Rotonda elevada</td>
+                            <td class="px-4 py-3 sm:px-6 text-center">
                                 <a href="https://www.google.com/maps/dir/?api=1&destination=39.462,-0.3089" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-3 py-2 sm:px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
                                     <span class="mr-2">🚓</span> Ir
                                 </a>
                             </td>
                         </tr>
                         <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <td data-label="Punto de Interés" class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">⚓ Muelle Espigón Turia Testero</td>
-                            <td data-label="Dirección" class="px-4 py-3 sm:px-6">Rotonda elevada</td>
-                            <td data-label="Navegar" class="px-4 py-3 sm:px-6 text-center">
+                            <td class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">⚓ Muelle Espigón Turia Testero</td>
+                            <td class="px-4 py-3 sm:px-6">Rotonda elevada</td>
+                            <td class="px-4 py-3 sm:px-6 text-center">
                                 <a href="https://www.google.com/maps/dir/?api=1&destination=39.460,-0.3180" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-3 py-2 sm:px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
                                     <span class="mr-2">🚓</span> Ir
                                 </a>
                             </td>
                         </tr>
                         <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <td data-label="Punto de Interés" class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">⚓ Muelle Espigón Turia Sur</td>
-                            <td data-label="Dirección" class="px-4 py-3 sm:px-6">Rotonda elevada</td>
-                            <td data-label="Navegar" class="px-4 py-3 sm:px-6 text-center">
+                            <td class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">⚓ Muelle Espigón Turia Sur</td>
+                            <td class="px-4 py-3 sm:px-6">Rotonda elevada</td>
+                            <td class="px-4 py-3 sm:px-6 text-center">
                                 <a href="https://www.google.com/maps/dir/?api=1&destination=39.460,-0.3181" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-3 py-2 sm:px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
                                     <span class="mr-2">🚓</span> Ir
                                 </a>
                             </td>
                         </tr>
                         <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <td data-label="Punto de Interés" class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">🌾 Muelle Sur (Graneles Sólidos)</td>
-                            <td data-label="Dirección" class="px-4 py-3 sm:px-6">Rotonda elevada</td>
-                            <td data-label="Navegar" class="px-4 py-3 sm:px-6 text-center">
+                            <td class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">🌾 Muelle Sur (Graneles Sólidos)</td>
+                            <td class="px-4 py-3 sm:px-6">Rotonda elevada</td>
+                            <td class="px-4 py-3 sm:px-6 text-center">
                                 <a href="https://www.google.com/maps/dir/?api=1&destination=39.460,-0.3182" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-3 py-2 sm:px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
                                     <span class="mr-2">🚓</span> Ir
                                 </a>
@@ -239,7 +193,7 @@
         <div>
             <h2 class="text-xl font-bold text-gray-700 dark:text-gray-200 mb-4">ZONA SUR</h2>
             <div class="table-container bg-white dark:bg-gray-800 shadow-md rounded-lg mb-8">
-                <table class="w-full text-sm text-left text-gray-700 dark:text-gray-300 responsive-table">
+                <table class="w-full text-sm text-left text-gray-700 dark:text-gray-300">
                      <thead class="text-xs text-gray-800 dark:text-gray-300 uppercase bg-gray-50 dark:bg-gray-700">
                         <tr>
                             <th scope="col" class="px-4 py-3 sm:px-6 font-bold">Punto de Interés</th>
@@ -249,18 +203,18 @@
                     </thead>
                     <tbody>
                          <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <td data-label="Punto de Interés" class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">📦 Muelle Costa / MSC Terminal</td>
-                            <td data-label="Dirección" class="px-4 py-3 sm:px-6">Rotonda elevada</td>
-                            <td data-label="Navegar" class="px-4 py-3 sm:px-6 text-center">
+                            <td class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">📦 Muelle Costa / MSC Terminal</td>
+                            <td class="px-4 py-3 sm:px-6">Rotonda elevada</td>
+                            <td class="px-4 py-3 sm:px-6 text-center">
                                 <a href="https://www.google.com/maps/dir/?api=1&destination=39.460,-0.3183" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-3 py-2 sm:px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
                                     <span class="mr-2">🚓</span> Ir
                                 </a>
                             </td>
                         </tr>
                         <tr class="bg-white dark:bg-gray-800 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <td data-label="Punto de Interés" class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">📦 Muelle Príncipe Felipe (CSP)</td>
-                            <td data-label="Dirección" class="px-4 py-3 sm:px-6">Dirección Sur</td>
-                            <td data-label="Navegar" class="px-4 py-3 sm:px-6 text-center">
+                            <td class="px-4 py-3 sm:px-6 font-medium text-gray-900 dark:text-white">📦 Muelle Príncipe Felipe (CSP)</td>
+                            <td class="px-4 py-3 sm:px-6">Dirección Sur</td>
+                            <td class="px-4 py-3 sm:px-6 text-center">
                                 <a href="https://www.google.com/maps/dir/?api=1&destination=39.460,-0.3184" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-3 py-2 sm:px-4 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition-colors duration-200">
                                     <span class="mr-2">🚓</span> Ir
                                 </a>
